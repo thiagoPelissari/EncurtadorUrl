@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@section scripts {
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#btnShortUrl").click(function () {
+
+                var longUrl = $(".txtUrl").val();
+
+                if (longUrl == "" || !is_url(longUrl))
+                {
+                    alert("Cole um link válido para encurta-lo")
+                }
+                else
+                {
+                    $.ajax({
+                        url: "/api/url?url=" + longUrl,
+                        type: 'POST',
+                        dataType: "json",
+                        //data: JSON.stringify({url: $(".txtUrl").val()}),
+                        success: function (data) {
+
+                            $(".urlInfo").hide();
+                            $(".lnkUrlLong").attr("href", longUrl);
+                            $(".lnkUrlLong").text(longUrl);
+                            $(".txtShortUrl").val(window.location.host + "/" + data);
+                            $(".urlInfo").show(1000);
+                        },
+                    });
+                }
+            });
+
+            var copyTextBtn = document.querySelector('#btnCopyUrl');
+
+            copyTextBtn.addEventListener('click', function (event) {
+                var copyText = document.querySelector('.txtShortUrl');
+                copyText.select();
+                document.execCommand('copy');
+            });
+
+        });
+
+        function is_url(str) {
+            regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+            if (regexp.test(str)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    </script>
+}
+
+<style>
+    .txtUrl {
+        min-width: 100%;
+        min-height: 45px;
+    }
+
+    .container {
+        padding-top: 20px;
+    }
+
+    .txtShortUrl {
+        color: orangered;
+    }
+
+    .urlInfo {
+        display: none;
+    }
+</style>
+
+<div class="jumbotron">
+    <h1>Encurtador de Url</h1>
+    <p class="lead">
+        App feito por <b>Thiago Pelissari</b>. Visite meu site pessoal clicando
+        <a href="http://thiagopelissari.com">Aqui</a>.
+    </p>
+
+</div>
+
+<div class="row">
+    <div class="col-sm-10">
+        <input type="text" class="form-control txtUrl" placeholder="Cole um link para encurta-lo" />
+    </div>
+    <div class="col-sm-1">
+        <button class="btn btn-success btn-lg" type="button" id="btnShortUrl">
+            Encurtar
+        </button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row urlInfo">
+        <div class="col-md-12">
+            <p>
+                <a href="" target="_blank" class="lnkUrlLong"></a>
+            </p>
+            <p>
+                <input type="text" class="txtShortUrl" value="" />
+                <button type="button" id="btnCopyUrl" class="btn btn-warning btn-sm">Copiar</button>
+            </p>
+        </div>
+    </div>
+</div>
+
+
