@@ -1,0 +1,14 @@
+BANCO
+Para funcionar na sua Maquina tem que trocar apenas o Data Source no Web.Config para o servidor sql da sua maquina
+no meu caso era Data Source=(LocalDb)\MSSQLLocalDB mas na sua deve estar diferente.
+
+SERVIÇOS
+Não tive a necessidade de utilizar todos, mas caso queira pode testar com o postman para verificar o funcionamento dos que não estão 
+sendo chamado no sisteminha.
+
+TECNOLOGIAS
+O Projeto foi construido asp.net mvc Code First, utilizei Web.Api com jquery e ajax para fazer as chamadas. Utilizei JavasCript e 
+Jquery para validações e manipulação da DOM em alguns momentos.
+
+PROJETO UPADO NO GITHUB
+https://github.com/thiagoPelissari/EncurtadorUrl.git
