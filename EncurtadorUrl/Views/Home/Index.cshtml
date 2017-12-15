@@ -23,12 +23,13 @@
                         dataType: "json",
                         //data: JSON.stringify({url: $(".txtUrl").val()}),
                         success: function (data) {
-
                             $(".urlInfo").hide();
                             $(".lnkUrlLong").attr("href", longUrl);
                             $(".lnkUrlLong").text(longUrl);
-                            $(".txtShortUrl").val(window.location.host + "/" + data);
+                            $(".hits").html("Hits: " + data.hits);
+                            $(".txtShortUrl").val(window.location.host + "/" + data.url);
                             $(".urlInfo").show(1000);
+                            updateInfo();
                         },
                     });
                 }
@@ -79,7 +80,7 @@
     <h1>Encurtador de Url</h1>
     <p class="lead">
         App feito por <b>Thiago Pelissari</b>. Visite meu site pessoal clicando
-        <a href="http://thiagopelissari.com">Aqui</a>.
+        <a href="http://thiagopelissari.com" target="_blank">Aqui</a>.
     </p>
 
 </div>
@@ -101,6 +102,9 @@
             <p>
                 <a href="" target="_blank" class="lnkUrlLong"></a>
             </p>
+            <p class="hits">
+
+            </p>
             <p>
                 <input type="text" class="txtShortUrl" value="" />
                 <button type="button" id="btnCopyUrl" class="btn btn-warning btn-sm">Copiar</button>
@@ -108,5 +112,9 @@
         </div>
     </div>
 </div>
+
+@Html.Action("_UrlInfos", "Home")
+
+
 
 

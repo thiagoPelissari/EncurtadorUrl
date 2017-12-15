@@ -219,6 +219,10 @@
     <Compile Include="Migrations\201712142108221_AddUrlControl.Designer.cs">
       <DependentUpon>201712142108221_AddUrlControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712150047536_AddHitsInUrlControl.cs" />
+    <Compile Include="Migrations\201712150047536_AddHitsInUrlControl.Designer.cs">
+      <DependentUpon>201712150047536_AddHitsInUrlControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -286,6 +290,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\UrlRedirect.cshtml" />
+    <Content Include="Views\Home\_UrlInfos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -301,6 +306,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712142108221_AddUrlControl.resx">
       <DependentUpon>201712142108221_AddUrlControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712150047536_AddHitsInUrlControl.resx">
+      <DependentUpon>201712150047536_AddHitsInUrlControl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

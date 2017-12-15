@@ -1,0 +1,39 @@
+﻿@{
+    
+}
+
+@section scripts {
+    <script type="text/javascript">
+
+        updateInfo();
+
+
+        function updateInfo()
+        {
+            $.ajax({
+                url: "/api/url/stats",
+                type: 'GET',
+                dataType: "json",
+                success: function (data) {
+                    $(".hitsInfo").html("Hits: " + data.hits)
+                    $(".qtdUrlInfo").html("Urls Cadastradas: " + data.qtdUrl)
+                },
+            });
+        }
+    </script>
+    }
+
+<div class="container">
+    <h3>Informação Geral</h3>
+    <div class="row">
+        <div class="col-sm-12 hitsInfo">
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 qtdUrlInfo">
+
+        </div>
+    </div>
+</div>

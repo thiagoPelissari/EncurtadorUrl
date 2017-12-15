@@ -11,6 +11,8 @@ namespace EncurtadorUrl.Models
     {
         public int Id { get; set; }
 
+        public int Hits { get; set; }
+
         public string Url { get; set; }
     }
 }
