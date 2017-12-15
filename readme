@@ -7,7 +7,7 @@ Não tive a necessidade de utilizar todos, mas caso queira pode testar com o pos
 sendo chamado no sisteminha.
 
 TECNOLOGIAS
-O Projeto foi construido asp.net mvc Code First, utilizei Web.Api com jquery e ajax para fazer as chamadas. Utilizei JavasCript e 
+O Projeto foi construido no visual studio 2015 em asp.net mvc Code First, utilizei Web.Api com jquery e ajax para fazer as chamadas. Utilizei JavasCript e 
 Jquery para validações e manipulação da DOM em alguns momentos.
 
 PROJETO UPADO NO GITHUB
